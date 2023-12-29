@@ -1,4 +1,4 @@
-package com.rays.test;
+package com.rays.bean;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
