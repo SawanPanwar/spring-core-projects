@@ -18,13 +18,12 @@ public class TestUserService {
 	@Autowired
 	public UserServiceInt service = null;
 
-	static {
-		context = new ClassPathXmlApplicationContext("applicationContext.xml");
-	}
-
 	public static void main(String[] args) throws Exception {
 
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
 		TestUserService test = (TestUserService) context.getBean("testUserService");
+
 		// test.testFindByPk();
 		test.testAdd();
 		// test.testUpdate();
