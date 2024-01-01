@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Define the Movie bean with autowiring by type -->
+	<bean id="movie" class="com.rays.autowire.bytype.Movie"
+		autowire="byType">
+		<!-- Explicitly set the title (not autowired) -->
+		<property name="title" value="Inception" />
+	</bean>
+
+	<!-- Define the Review bean -->
+	<bean id="movieReview" class="com.rays.autowire.bytype.Review">
+		<!-- Explicitly set the comment (not autowired) -->
+		<property name="comment" value="A mind-bending masterpiece!" />
+	</bean>
+</beans>
