@@ -4,17 +4,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- Define the Movie bean with constructor autowiring -->
-	<bean id="movie" class="com.rays.autowire.byconstructor.Movie"
-		autowire="constructor">
-		<!-- Explicitly set the title (not autowired) -->
-		<constructor-arg name="title" value="Inception" />
-	</bean>
+	<bean id="userService"
+		class="com.rays.autowire.byconstructor.UserService"
+		autowire="constructor" />
 
-	<!-- Define the Review bean -->
-	<bean id="movieReview"
-		class="com.rays.autowire.byconstructor.Review">
-		<!-- Explicitly set the comment (not autowired) -->
-		<property name="comment" value="A mind-bending masterpiece!" />
-	</bean>
+	<bean id="userDao"
+		class="com.rays.autowire.byconstructor.UserDaoImpl" />
+
 </beans>

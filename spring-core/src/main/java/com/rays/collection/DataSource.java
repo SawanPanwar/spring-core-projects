@@ -1,6 +1,7 @@
 package com.rays.collection;
 
 public class DataSource {
+
 	private String url;
 	private String username;
 	private String password;

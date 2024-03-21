@@ -11,7 +11,7 @@ public class TestServiceLocator {
 
 		ServiceLocator locator = (ServiceLocator) context.getBean("locator");
 
-		locator.getInstance();
+		ServiceLocator s = locator.getInstance();
 
 	}
 

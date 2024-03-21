@@ -4,17 +4,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- Define the Movie bean -->
-	<bean id="movie" class="com.rays.autowire.notype.Movie"
-		autowire="no">
-		<!-- Explicitly wire dependencies using property -->
-		<property name="title" value="Inception" />
-		<property name="review" ref="movieReview" />
+	<bean id="userService"
+		class="com.rays.autowire.notype.UserService">
+		<property name="userDao" ref="userDao" />
 	</bean>
 
-	<!-- Define the Review bean -->
-	<bean id="movieReview" class="com.rays.autowire.notype.Review">
-		<!-- Explicitly set the comment -->
-		<property name="comment" value="A mind-bending masterpiece!" />
-	</bean>
+	<bean id="userDao" class="com.rays.autowire.notype.UserDaoImpl" />
+
 </beans>

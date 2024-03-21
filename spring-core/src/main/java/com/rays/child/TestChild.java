@@ -9,9 +9,9 @@ public class TestChild {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("child.xml");
 
-		TestBean childClass = context.getBean("derivedTestBean", DerivedTestBean.class);
+		TestBean testBean = (TestBean) context.getBean("derivedTestBean");
 
-		System.out.println(childClass.toString());
+		System.out.println(testBean.toString());
 
 	}
 

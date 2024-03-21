@@ -9,7 +9,7 @@ public class TestPerson {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("Person.xml");
 
 		Person person = (Person) context.getBean("personBean");
 
