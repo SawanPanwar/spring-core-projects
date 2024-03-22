@@ -11,17 +11,17 @@
 		base-package="com.rays.exclude" />
 
 	<bean id="userService" class="com.rays.exclude.UserService">
-		<constructor-arg value="John Doe" />
+		<constructor-arg value="abc" />
 	</bean>
-
-	<bean id="anotherService" class="com.rays.exclude.AnotherService" />
 
 	<!-- Excluding userService from autowiring -->
 	<bean id="userServiceToExclude"
 		class="com.rays.exclude.UserService" autowire-candidate="false"
 		primary="true">
-		<constructor-arg value="Jane Smith" />
+		<constructor-arg value="xyz" />
 	</bean>
+
+	<bean id="anotherService" class="com.rays.exclude.AnotherService" />
 
 	<bean id="testAutowire" class="com.rays.exclude.TestAutowire"
 		autowire="byType" />

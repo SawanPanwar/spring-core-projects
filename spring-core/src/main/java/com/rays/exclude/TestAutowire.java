@@ -11,8 +11,8 @@ public class TestAutowire {
 	private AnotherService anotherService;
 
 	public void performOperations() {
-		userService.greet(); // Should print "Hello, John Doe!"
-		anotherService.doSomething(); // Should print "Doing something..."
+		userService.greet();
+		anotherService.doSomething();
 	}
 
 }
