@@ -8,7 +8,7 @@ public class UserService {
 		this.userDao = userDao;
 	}
 
-	public void add() {
+	public void testAdd() {
 		userDao.add();
 	}
 

@@ -10,6 +10,6 @@ public class TestAutowireByConstructor {
 		ApplicationContext context = new ClassPathXmlApplicationContext("autowire-by-constructor.xml");
 
 		UserService userService = (UserService) context.getBean("userService");
-		userService.add();
+		userService.testAdd();
 	}
 }

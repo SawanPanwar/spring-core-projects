@@ -9,6 +9,6 @@ public class TestAutowireByType {
 		ApplicationContext context = new ClassPathXmlApplicationContext("autowire-by-type.xml");
 
 		UserService userService = (UserService) context.getBean("userService");
-		userService.add();
+		userService.testAdd();
 	}
 }
