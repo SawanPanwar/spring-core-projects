@@ -18,7 +18,13 @@ public class UserServiceImpl implements UserServiceInt {
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public long add(UserDTO dto) {
+		
 		long pk = dao.add(dto);
+
+		if (dto.getLogin().equals("admin")) {
+			throw new RuntimeException("User with login 'admin' not allowed.");
+		}
+
 		return pk;
 	}
 
