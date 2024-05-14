@@ -9,8 +9,7 @@
 
 	<bean id="emailService" class="com.rays.primary.EmailService" primary="true"  />
 
-	<bean id="twitterService" class="com.rays.primary.TwitterService"
-		/>
+	<bean id="twitterService" class="com.rays.primary.TwitterService" />
 
 	<bean id="notificationService"
 		class="com.rays.primary.NotificationService" autowire="byType" />

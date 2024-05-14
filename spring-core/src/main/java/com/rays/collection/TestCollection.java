@@ -10,7 +10,5 @@ public class TestCollection {
 		ApplicationContext context = new ClassPathXmlApplicationContext("collection.xml");
 		MyBean myBean = (MyBean) context.getBean("myBean");
 		myBean.displayData();
-
 	}
-
 }
