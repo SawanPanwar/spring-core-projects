@@ -23,7 +23,7 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 
 	public long add(UserDTO dto) {
 
-		String sql = "INSERT INTO USER VALUES(?, ?, ?, ?, ?)";
+		String sql = "insert into user values(?, ?, ?, ?, ?)";
 
 		int pk = jdbcTemplate.update(sql, dto.getId(), dto.getFirstName(), dto.getLastName(), dto.getLogin(),
 				dto.getPassword());
@@ -32,7 +32,7 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 
 	public void update(UserDTO dto) {
 
-		String sql = "UPDATE USER SET FIRST_NAME = ?, LAST_NAME = ?, LOGIN = ?, PASSWORD = ? WHERE ID = ?";
+		String sql = "update user set first_name = ?, last_name = ?, login = ?, password = ? where id = ?";
 
 		int i = jdbcTemplate.update(sql, dto.getFirstName(), dto.getLastName(), dto.getLogin(), dto.getPassword(),
 				dto.getId());
@@ -40,20 +40,26 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 	}
 
 	public void delete(long id) {
-		String sql = "DELETE FROM USER WHERE ID = ?";
+		
+		String sql = "delete from user where id = ?";
+		
 		Object[] params = { id };
 		int i = jdbcTemplate.update(sql, params);
 	}
 
 	public UserDTO findByLogin(String login) {
-		String sql = "SELECT ID, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD FROM USER WHERE LOGIN = ?";
+		
+		String sql = "select id, first_name, last_name, login, password from user where login = ?";
+		
 		Object[] params = { login };
 		UserDTO user = jdbcTemplate.queryForObject(sql, params, new UserMapper());
 		return user;
 	}
 
 	public UserDTO findByPK(long pk) {
-		String sql = "SELECT ID, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD FROM USER WHERE ID = ?";
+		
+		String sql = "select id, first_name, last_name, login, password from user where id = ?";
+		
 		Object[] params = { pk };
 		List list = jdbcTemplate.query(sql, params, new UserMapper());
 
@@ -67,7 +73,7 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 
 	public UserDTO authenticate(String login, String password) {
 		try {
-			String sql = "SELECT ID, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD FROM USER WHERE LOGIN = ? AND PASSWORD = ?";
+			String sql = "select id, first_name, last_name, login, password from user where login = ? and password = ?";
 			Object[] params = { login, password };
 			UserDTO user = jdbcTemplate.queryForObject(sql, params, new UserMapper());
 			return user;
@@ -77,13 +83,13 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 	}
 
 	public List search(UserDTO dto) {
-		String sql = "SELECT ID, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD FROM USER";
+		String sql = "select id, first_name, last_name, login, password from user";
 		List l = jdbcTemplate.query(sql, new UserMapper());
 		return l;
 	}
 
 	public List search(UserDTO dto, int pageNo, int pageSize) {
-		String sql = "SELECT ID, FIRST_NAME, LAST_NAME, LOGIN, PASSWORD FROM USER LIMIT " + pageNo + "," + pageSize;
+		String sql = "select id, first_name, last_name, login, password from user limit " + pageNo + "," + pageSize;
 		List l = jdbcTemplate.query(sql, new UserMapper());
 		return l;
 	}

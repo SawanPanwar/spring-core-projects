@@ -1,5 +1,6 @@
 package com.rays.test;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,6 @@ import com.rays.service.UserServiceInt;
 @Component("testUserService")
 public class TestUserService {
 
-	public static ApplicationContext context = null;
-
 	@Autowired
 	public UserServiceInt service = null;
 
@@ -24,24 +23,13 @@ public class TestUserService {
 
 		TestUserService test = (TestUserService) context.getBean("testUserService");
 
-		// test.testFindByPk();
-		test.testAdd();
+		// test.testAdd();
 		// test.testUpdate();
-		// test.testSearch();
+		// test.testDelete();
+		// test.testFindByPk();
 		// test.testAuth();
-	}
+		test.testSearch();
 
-	public void testSearch() {
-		UserDTO dto = new UserDTO();
-		System.out.println("service->" + service);
-		List<UserDTO> l = service.search(dto, 1, 5);
-		l.forEach(e -> {
-			System.out.print(e.getId());
-			System.out.print("\t" + e.getFirstName());
-			System.out.print("\t" + e.getLastName());
-			System.out.print("\t" + e.getLogin());
-			System.out.println("\t" + e.getPassword());
-		});
 	}
 
 	public void testAdd() {
@@ -88,4 +76,23 @@ public class TestUserService {
 		}
 	}
 
+	public void testSearch() {
+
+		UserDTO dto = new UserDTO();
+
+		System.out.println("service->" + service);
+
+		List<UserDTO> list = service.search(dto, 1, 5);
+
+		Iterator it = list.iterator();
+
+		while (it.hasNext()) {
+			dto = (UserDTO) it.next();
+			System.out.print(dto.getId());
+			System.out.print("\t" + dto.getFirstName());
+			System.out.print("\t" + dto.getLastName());
+			System.out.print("\t" + dto.getLogin());
+			System.out.println("\t" + dto.getPassword());
+		}
+	}
 }
