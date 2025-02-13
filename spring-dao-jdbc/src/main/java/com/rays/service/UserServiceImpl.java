@@ -14,7 +14,7 @@ import com.rays.dto.UserDTO;
 public class UserServiceImpl implements UserServiceInt {
 
 	@Autowired
-	private UserDAOInt dao = null;
+	private UserDAOInt dao;
 
 	@Transactional(propagation = Propagation.REQUIRED)
 	public long add(UserDTO dto) {

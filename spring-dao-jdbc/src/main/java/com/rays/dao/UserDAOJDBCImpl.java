@@ -16,6 +16,8 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 
 	private JdbcTemplate jdbcTemplate;
 
+	private DataSource dataSource = null;
+
 	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -40,26 +42,27 @@ public class UserDAOJDBCImpl implements UserDAOInt {
 	}
 
 	public void delete(long id) {
-		
+
 		String sql = "delete from user where id = ?";
-		
+
 		Object[] params = { id };
+
 		int i = jdbcTemplate.update(sql, params);
 	}
 
 	public UserDTO findByLogin(String login) {
-		
+
 		String sql = "select id, first_name, last_name, login, password from user where login = ?";
-		
+
 		Object[] params = { login };
 		UserDTO user = jdbcTemplate.queryForObject(sql, params, new UserMapper());
 		return user;
 	}
 
 	public UserDTO findByPK(long pk) {
-		
+
 		String sql = "select id, first_name, last_name, login, password from user where id = ?";
-		
+
 		Object[] params = { pk };
 		List list = jdbcTemplate.query(sql, params, new UserMapper());
 
