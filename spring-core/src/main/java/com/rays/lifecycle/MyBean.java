@@ -9,5 +9,4 @@ public class MyBean {
 	public void destroy() {
 		System.out.println("destroy method");
 	}
-
 }

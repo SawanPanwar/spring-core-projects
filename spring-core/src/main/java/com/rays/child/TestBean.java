@@ -3,6 +3,7 @@ package com.rays.child;
 public class TestBean {
 
 	private String name;
+	
 	private int age;
 
 	public void setName(String name) {
@@ -17,5 +18,4 @@ public class TestBean {
 	public String toString() {
 		return "TestBean [name=" + name + ", age=" + age + "]";
 	}
-
 }

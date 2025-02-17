@@ -10,8 +10,15 @@
     http://www.springframework.org/schema/tx
     http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
+	<!-- by setter method's -->
 	<bean name="user" class="com.rays.bean.UserBean">
 		<property name="login" value="sunilos"></property>
 		<property name="password" value="sunrays"></property>
 	</bean>
+
+	<!-- by constructor -->
+	<!-- <bean name="user" class="com.rays.bean.UserBean">
+		<constructor-arg value="sunilos"></constructor-arg>
+		<constructor-arg value="sunrays"></constructor-arg>
+	</bean> -->
 </beans>

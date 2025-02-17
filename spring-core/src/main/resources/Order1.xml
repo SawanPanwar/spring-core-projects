@@ -15,7 +15,15 @@
 
 	<bean name="payment" class="com.rays.ioc.Payment" />
 
+	<!-- <bean name="payment" class="com.rays.ioc.Payment">
+		<property name="balance" value="100"></property>
+	</bean> -->
+
 	<bean name="inventory" class="com.rays.ioc.Inventory" />
+
+	<!-- <bean name="inventory" class="com.rays.ioc.Inventory">
+		<property name="stock" value="100"></property>
+	</bean> -->
 
 	<bean name="order1" class="com.rays.ioc.Order1">
 		<property name="payment" ref="payment" />

@@ -10,6 +10,7 @@ public class TestExcludeAutomatically {
 		ApplicationContext context = new ClassPathXmlApplicationContext("exclude.xml");
 
 		TestAutowire testAutowire = context.getBean(TestAutowire.class);
+		
 		testAutowire.performOperations();
 	}
 
