@@ -7,7 +7,7 @@ public class TestOrder1 {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("Order1.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("order1.xml");
 
 		Order1 order = (Order1) context.getBean("order1");
 
