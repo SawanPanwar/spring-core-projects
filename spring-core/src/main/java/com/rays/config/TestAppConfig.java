@@ -1,21 +1,16 @@
 package com.rays.config;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestAppConfig {
 
 	public static void main(String[] args) {
 
-		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.rays.config");
+		ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 
-		context.register(AppConfig.class);
+		UserService userService = (UserService) context.getBean("userService");
 
-		// context.refresh();
-
-		UserService service = (UserService) context.getBean("userService");
-
-		service.add();
-
-		context.close();
+		userService.add();
 	}
 }
